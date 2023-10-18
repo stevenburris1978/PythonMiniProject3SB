@@ -13,20 +13,26 @@ bp = Blueprint('auth', __name__, url_prefix='/auth')
 def register():
     if request.method == 'POST':
         username = request.form['username']
+        firstname = request.form['firstname']
+        lastname = request.form['lastname']
         password = request.form['password']
         db = get_db()
         error = None
 
         if not username:
             error = 'Username is required.'
+        if not firstname:
+            error = 'Firstname is required.'
+        if not lastname:
+            error = 'Lastname is required'
         elif not password:
             error = 'Password is required.'
 
         if error is None:
             try:
                 db.execute(
-                    "INSERT INTO user (username, password) VALUES (?, ?)",
-                    (username, generate_password_hash(password)),
+                    "INSERT INTO user (username, firstname, lastname, password) VALUES (?, ?, ?, ?)",
+                    (username, firstname, lastname, generate_password_hash(password)),
                 )
                 db.commit()
             except db.IntegrityError:
@@ -88,3 +94,8 @@ def login_required(view):
         return view(**kwargs)
 
     return wrapped_view
+
+@bp.route('/profile')
+def profile():
+    return render_template('auth/profile.html')
+
