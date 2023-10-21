@@ -3,3 +3,13 @@
 {% block header %}
   <h1>{% block title %}Profile{% endblock %}</h1>
 {% endblock %}
+
+{% block content %}
+ <ul>
+   {% if g.user %}
+     <li><h3>Name:</h3><h3> {{ g.user['firstname'] }} {{ g.user['lastname'] }}</h3></li>
+       <li><h4>Email:</h4><h5> {{ g.user['username'] }}</h5></li>
+        {% endif %}
+
+      </ul>
+{% endblock %}
