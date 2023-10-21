@@ -15,5 +15,6 @@ CREATE TABLE post (
   created TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
   title TEXT NOT NULL,
   body TEXT NOT NULL,
+  price DECIMAL(10,2),
   FOREIGN KEY (author_id) REFERENCES user (id)
 );

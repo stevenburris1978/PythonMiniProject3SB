@@ -10,6 +10,8 @@
     <input name="title" id="title" value="{{ request.form['title'] }}" required>
     <label for="body">Ad Description</label>
     <textarea name="body" id="body">{{ request.form['body'] }}</textarea>
+    <label for="price">Price</label>
+    <input type="number" step="0.01" min="0" name="price" id="price" value="{{ request.form['price'] }}" required>
     <input type="submit" value="Save">
   </form>
 {% endblock %}
