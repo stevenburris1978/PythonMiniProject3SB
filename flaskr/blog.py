@@ -96,13 +96,14 @@ def delete(id):
     db.execute('DELETE FROM post WHERE id = ?', (id,))
     db.commit()
     return redirect(url_for('blog.index'))
-@bp.route('/details' )
+@bp.route('/<int:id>/details' )
 @login_required
-def details():
+def details(id):
     db = get_db()
     posts = db.execute(
         'SELECT p.id, title, body, price, created, author_id, username'
         ' FROM post p JOIN user u ON p.author_id = u.id'
-        ' ORDER BY created DESC'
+        ' WHERE p.id = ?',
+        (id, )
     ).fetchall()
     return render_template('blog/details.html', posts=posts)
