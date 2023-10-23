@@ -1,13 +1,10 @@
 # INF601VA - Advanced Programming in Python
 # Steven Burris
-# 10-14-2023
+# 10-22-2023
 # *Mini Project 3SB*
 
 # *Description*
-### This app will 
-
-## *Dataset Install Instructions*
- To get the software professional salaries dataset got to url : [Kaggle salary data set: ](https://www.kaggle.com/datasets/thedevastator/u-s-software-developer-salaries)
+### This app will
 
 ## *PIP Install Instructions*
 Please copy the following command in the terminal for all the packages needed to run the program:
