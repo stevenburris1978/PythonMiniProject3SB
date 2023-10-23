@@ -17,6 +17,12 @@ pip install -r requirements.txt
 
 ## How to run
 
+# firts initialize the database
+```
+flask --app flaskr init-db
+```
+
+# then start app
 ```
 flask --app flaskr run
 ```
