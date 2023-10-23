@@ -9,12 +9,14 @@
     <nav>
       <h1>Ads App</h1>
       <ul>
+          <!-- displays logged in stuff -->
         {% if g.user %}
           <li><span>{{ g.user['username'] }}</span>
           <li><a href="{{ url_for('index') }}">Home</a></li>
           <li><a href="{{ url_for('auth.profile') }}">Profile</a></li>
         <li><a href="{{ url_for('auth.logout') }}">Log Out</a></li>
         {% else %}
+          <!-- displays logged out stuff -->
         <li><a href="{{ url_for('auth.register') }}">Register</a></li>
         <li><a href="{{ url_for('auth.login') }}">Log In</a></li>
         {% endif %}
@@ -24,7 +26,7 @@
         </button>
       </ul>
     </nav>
-    <!-- Modal -->
+    <!-- Help Modal -->
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
@@ -33,7 +35,7 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
-            In this app you can create an ad and see your profile
+            Users can create, edit, & delete an ad, see extra details of one ad by clicking its title, and see your profile page.
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
