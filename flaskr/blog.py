@@ -68,6 +68,7 @@ def update(id):
         title = request.form['title']
         body = request.form['body']
         price = request.form['price']
+
         error = None
 
         if not title:
@@ -95,3 +96,13 @@ def delete(id):
     db.execute('DELETE FROM post WHERE id = ?', (id,))
     db.commit()
     return redirect(url_for('blog.index'))
+@bp.route('/details' )
+@login_required
+def details():
+    db = get_db()
+    posts = db.execute(
+        'SELECT p.id, title, body, price, created, author_id, username'
+        ' FROM post p JOIN user u ON p.author_id = u.id'
+        ' ORDER BY created DESC'
+    ).fetchall()
+    return render_template('blog/details.html', posts=posts)
