@@ -5,7 +5,7 @@
 
 # *Description*
 ### in this app users can register, log in, see their profile page
-### users can also add an ad and see all the details of the ad by clicking on the ad title
+### users can also add an ad and see all the details of an ad by clicking on the ad title
 
 ## *PIP Install Instructions*
 Please copy the following command in the terminal for all the packages needed to run the program:
